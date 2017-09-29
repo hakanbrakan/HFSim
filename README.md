@@ -6,19 +6,17 @@ Försök till simulering av resandeströmmar
 Kvar att göra:
 
 Klart:
+<br>Skapa githubkonto
+<br>Göra helloworld på Github
+<br>Koppla lokalt gitrepo till github
+<br>Testa checka in fil på github 
+<br>Skapa workspace i eclipse kopplat till github
+<br>Workspace ska vara mavenproj o ha mvnstd på kataloger. 
 
 
 
 
 Noteringar från landet:
-HFSimulate
-
-
-KLAR - skapa githubkonto
-KLAR - Göra helloworld på Github
-Koppla lokalt gitrepo till github
-Testa checka in fil på github 
-	jobba mkt m brancher. git
 
 Börja fundera på filformat för simuleringsfilerna
 	json?
@@ -30,9 +28,7 @@ Börja fundera på filformat för simuleringsfilerna
 			solid
 			gåtillzon
 
-skapa workspace i eclipse kopplat till github
-	ws ska vara mavenproj o ha mvnstd på kataloger. 
-	klasser ska ha testklasser
+klasser ska ha testklasser
 I Git checka in enkel htmlsida m mina länkar för detta proj, tex för component pattern
 
 
