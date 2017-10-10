@@ -4,6 +4,8 @@ Simulate
 Försök till simulering av resandeströmmar
 
 Kvar att göra:
+Checka in när en bra status
+Få igång loggning
 
 Klart:
 <br>Skapa githubkonto
