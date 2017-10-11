@@ -30,6 +30,7 @@ public class Spawner {
 		attSkickaUt.add(new Wall(50,	80, 60, 50));
 		attSkickaUt.add(new Wall(150, 80, 60, 50));
 		attSkickaUt.add(new Wall(10,	200, 100, 60));
+		attSkickaUt.add(new Wall(130, 200, 100, 60));
 	}
 
 	public void tick() {

@@ -4,8 +4,6 @@ Simulate
 Försök till simulering av resandeströmmar
 
 Kvar att göra:
-Checka in när en bra status
-Få igång loggning
 merga loggning till master
 ta bort loggning branch
 Zoner
@@ -20,6 +18,8 @@ Klart:
 <br>Testa checka in fil på github 
 <br>Skapa workspace i eclipse kopplat till github
 <br>Workspace ska vara mavenproj o ha mvnstd på kataloger. 
+<br>Checka in när en bra status
+<br>Få igång loggning
 
 
 

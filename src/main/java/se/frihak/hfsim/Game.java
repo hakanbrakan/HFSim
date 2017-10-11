@@ -56,12 +56,12 @@ public class Game extends Canvas implements Runnable {
 //		spawner = Spawnerfactory.createSpawner(); //Fast denna måste ju ligga efter menyn då man ska välja simfil ju
 
 		if (gameState == STATE.Game) {
-			log.fine("Game");
+			log.finer("Game");
 //			handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.player, handler));
 //
 //			handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
 		} else {
-			log.fine("Else");
+			log.finer("Else");
 //			for (int i = 0; i < 10; i++) {
 //				handler.addObject(new MenuPartical(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.MenuPartical, handler));
 //			}
