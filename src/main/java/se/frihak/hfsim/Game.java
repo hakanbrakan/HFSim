@@ -13,7 +13,7 @@ import se.frihak.hfsim.spawner.Spawner;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 4783864066025606436L;
-	private static final Logger log = Logger.getLogger(Game.class.getName());
+	Logger log = Logger.getLogger(this.getClass().getName());
 	
 	public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
 	private Thread thread;
@@ -113,7 +113,7 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	private void tick() {
-		log.fine("tick");
+		log.finer("entering tick");
 
 		if (gameState == STATE.Game) {
 

@@ -12,7 +12,7 @@ import se.frihak.hfsim.simobjects.GameObject;
 import se.frihak.hfsim.simobjects.Wall;
 
 public class Spawner {
-	private static final Logger log = Logger.getLogger(Spawner.class.getName());
+	private Logger log = Logger.getLogger(this.getClass().getName());
 
 	private Handler handler;
 	private HeadUpDisplay hud;
@@ -33,8 +33,9 @@ public class Spawner {
 	}
 
 	public void tick() {
-		log.fine("tick");
-		if (!attSkickaUt.isEmpty()) {
+        log.finer("entering tick");
+        if (!attSkickaUt.isEmpty()) {
+        		log.fine("Spawnar ett gameobject");
 			handler.addObject(attSkickaUt.get(0));
 			attSkickaUt.remove(0);
 		}

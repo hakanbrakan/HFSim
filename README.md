@@ -18,6 +18,13 @@ Klart:
 
 
 
+http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html
+https://stackoverflow.com/questions/194765/how-do-i-get-java-logging-output-to-appear-on-a-single-line
+https://github.com/GoogleCloudPlatform/getting-started-java/blob/master/bookshelf-standard/5-logging/src/main/webapp/WEB-INF/logging.properties
+http://docs.oracle.com/javase/7/docs/api/index.html?java/util/logging/SimpleFormatter.html
+https://stackoverflow.com/questions/9457976/java-logging-where-is-my-log-file
+
+
 Noteringar från landet:
 
 Börja fundera på filformat för simuleringsfilerna
