@@ -6,6 +6,12 @@ Försök till simulering av resandeströmmar
 Kvar att göra:
 Checka in när en bra status
 Få igång loggning
+merga loggning till master
+ta bort loggning branch
+Zoner
+En gubbe som går från zon a till zonC och då avslutas simuleringen
+Skapa spawner från fil
+
 
 Klart:
 <br>Skapa githubkonto
