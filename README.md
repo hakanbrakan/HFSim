@@ -4,11 +4,29 @@ Simulate
 Försök till simulering av resandeströmmar
 
 Kvar att göra:
+Skapa ny sida för todo	
 merga loggning till master
 ta bort loggning branch
+Länkar att läsa
+http://gameprogrammingpatterns.com/game-loop.html
+http://gameprogrammingpatterns.com/contents.html
+https://lwjglgamedev.gitbooks.io/3d-game-development-with-lwjgl/content/chapter2/chapter2.html
+http://web.archive.org/web/20140402204854/http://www.altdevblogaday.com/2011/02/24/introduction-to-behavior-trees/
+http://alumni.media.mit.edu/~jorkin/goap.html
 Zoner
+Escape ska ta fram menyn där man kan välja att avsluta
 En gubbe som går från zon a till zonC och då avslutas simuleringen
 Skapa spawner från fil
+
+Avstånd i meter - Converterklass
+Tid i minuter o sekunder
+När tar simuleringen slut? 
+	Alla movingobjects borta?
+	Alla mål uppfullda?
+Rutt eller möjligen kommands är delmål
+	tex zon a, c, ståstill 3min , d e
+	stanna, move, spring, vänta, removeobj, goalreached
+Spawna många till en zon - startsituation
 
 
 Klart:
