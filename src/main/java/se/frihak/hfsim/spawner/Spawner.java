@@ -1,7 +1,9 @@
 package se.frihak.hfsim.spawner;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.logging.Logger;
 
@@ -10,6 +12,7 @@ import se.frihak.hfsim.Handler;
 import se.frihak.hfsim.HeadUpDisplay;
 import se.frihak.hfsim.simobjects.GameObject;
 import se.frihak.hfsim.simobjects.Wall;
+import se.frihak.hfsim.simobjects.Zone;
 
 public class Spawner {
 	private Logger log = Logger.getLogger(this.getClass().getName());
@@ -21,24 +24,28 @@ public class Spawner {
 	private Game game;
 
 	private List<GameObject> attSkickaUt;
+	private Map<String, GameObject> allaZoner;
 
 	public Spawner(Handler handler, HeadUpDisplay hud, Game game) {
 		this.handler = handler;
 		this.hud = hud;
 		this.game = game;
+		allaZoner = new HashMap<>();
 		attSkickaUt = new ArrayList<GameObject>();
 		attSkickaUt.add(new Wall(50,	80, 60, 50));
 		attSkickaUt.add(new Wall(150, 80, 60, 50));
+		attSkickaUt.add(new Zone(350, 200, 100, 60));
 		attSkickaUt.add(new Wall(10,	200, 100, 60));
 		attSkickaUt.add(new Wall(130, 200, 100, 60));
+		attSkickaUt.add(new Zone(250, 200, 100, 60));
 	}
 
 	public void tick() {
         log.finer("entering tick");
         if (!attSkickaUt.isEmpty()) {
         		log.fine("Spawnar ett gameobject");
-			handler.addObject(attSkickaUt.get(0));
-			attSkickaUt.remove(0);
+			handler.addObject(attSkickaUt.remove(0));
+//			attSkickaUt.stream().filter(l -> l.getId()==ID.Zone).forEach(k -> allaZoner.add(k.getName(), k));
 		}
 		//Kolla om det finns mer att släppa ut på banan
 //		scoreKeep++;
@@ -47,24 +54,6 @@ public class Spawner {
 //			scoreKeep = 0;
 //			hud.setLevel(hud.getLevel() + 1);
 //
-//			if (game.diff == 0) {
-//				if (hud.getLevel() >= 1 && hud.getLevel() <= 5) {
-//					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50),
-//							ID.BasicEnemy, handler));
-//				} else if (hud.getLevel() == 6) {
-//					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50),
-//							ID.FastEnemy, handler));
-//				} else if (hud.getLevel() == 7) {
-//					handler.addObject(new SmartEnemy(Game.WIDTH / 2, Game.HEIGHT / 2, ID.SmartEnemy, handler));
-//				} else if (hud.getLevel() == 10) {
-//					handler.clearEnemys();
-//					handler.addObject(new EnemyBoss(Game.WIDTH / 2, Game.HEIGHT - 500, ID.EnemyBoss, handler));
-//				}
-//				if(hud.getLevel() == 14){
-//					handler.clearEnemys();
-//					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50),ID.BasicEnemy, handler));
-//				}
-//			}
 //		}
 	}
 }

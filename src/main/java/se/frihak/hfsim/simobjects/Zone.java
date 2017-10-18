@@ -6,12 +6,12 @@ import java.awt.Rectangle;
 
 import se.frihak.hfsim.Game;
 
-public class Wall extends GameObject {
+public class Zone extends GameObject {
 	private int width;
 	private int height;
 
-	public Wall(int x, int y, int width, int height) {
-		super(x, y, ID.Wall);
+	public Zone(int x, int y, int width, int height) {
+		super(x, y, ID.Zone);
 		if (y >= Game.HEIGHT) {
 			setY(Game.HEIGHT);
 		}
@@ -28,7 +28,7 @@ public class Wall extends GameObject {
 	}
 
 	public void render(Graphics g) {
-		g.setColor(Color.RED);
-		g.fillRect((int) x, (int) y, width, height);
+		g.setColor(Color.GRAY);
+		g.drawRect((int) x, (int) y, width, height);
 	}
 }
