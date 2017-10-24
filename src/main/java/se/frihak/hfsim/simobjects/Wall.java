@@ -20,6 +20,10 @@ public class Wall extends GameObject {
 		this.height = height;
 	}
 
+	public Wall(SpecGameObject enSpec) {
+		this(1,1,1,1);
+	}
+
 	public Rectangle getBounds() {
 		return new Rectangle((int) x, (int) y, width, height);
 	}

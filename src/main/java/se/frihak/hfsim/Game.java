@@ -8,6 +8,7 @@ import java.awt.image.BufferStrategy;
 import java.util.Random;
 import java.util.logging.Logger;
 
+import se.frihak.hfsim.spawner.HardkodadeSpawnerObjects;
 import se.frihak.hfsim.spawner.Spawner;
 
 
@@ -52,7 +53,7 @@ public class Game extends Canvas implements Runnable {
 		new Window(WIDTH, HEIGHT, "HFSimulate", this);
 		r = new Random();
 
-		spawner = new Spawner(handler, hud, this);
+		spawner = new Spawner(handler, hud, this, new HardkodadeSpawnerObjects());
 //		spawner = Spawnerfactory.createSpawner(); //Fast denna måste ju ligga efter menyn då man ska välja simfil ju
 
 		if (gameState == STATE.Game) {
