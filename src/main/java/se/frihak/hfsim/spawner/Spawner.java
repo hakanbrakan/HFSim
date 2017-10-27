@@ -14,6 +14,7 @@ import se.frihak.hfsim.HeadUpDisplay;
 import se.frihak.hfsim.simobjects.GameObject;
 import se.frihak.hfsim.simobjects.ID;
 import se.frihak.hfsim.simobjects.SpecGameObject;
+import se.frihak.hfsim.simobjects.WalkingMan;
 import se.frihak.hfsim.simobjects.Wall;
 import se.frihak.hfsim.simobjects.Zone;
 
@@ -45,24 +46,10 @@ public class Spawner {
         log.finer("entering tick");
         
         if(allaZonespawners.isEmpty()) {
-        		for (SpecGameObject enSpec : attSpawna) {
-        			if (enSpec.getId()==ID.Zone) {
-        				ZoneSpawner enZoneSpawner = new ZoneSpawner(enSpec);
-					allaZonespawners.put(enSpec.getNamn(), enZoneSpawner );
-					handler.addObject(enZoneSpawner);
-        			}
-			}
+        		createZoneSpawners();
         }
         
-        while (!attSpawna.isEmpty()) {
-	    		log.fine("Spawnar ett gameobject");
-			SpecGameObject ettObjektAttSpawna = attSpawna.remove(0);
-			if (isTimeToSpawnNow(ettObjektAttSpawna)) {
-				spawnOneObject(ettObjektAttSpawna);
-			} else {
-				attSpawnaSenare.add(ettObjektAttSpawna);
-			}
-		}
+        spawnaAllaObjekt();
 		//Kolla om det finns mer att släppa ut på banan
 //		scoreKeep++;
 //
@@ -72,15 +59,36 @@ public class Spawner {
 //
 //		}
         
-        //Detta behövs ju inte då de ligger i handler
-//        allaZonespawners.values();
-//        	for (ZoneSpawner enSpawner : allaZonespawners.values()) {
-//			enSpawner.tick();
-//		}
-        for (SpecGameObject ettObjektAttSpawna : attSpawnaSenare) {
+        spawnaDeSomHarVantat();
+	}
+
+	private void spawnaDeSomHarVantat() {
+		for (SpecGameObject ettObjektAttSpawna : attSpawnaSenare) {
 			if (isTimeToSpawnNow(ettObjektAttSpawna)) {
 				spawnOneObject(ettObjektAttSpawna);
 				attSpawnaSenare.remove(ettObjektAttSpawna);
+			}
+		}
+	}
+
+	private void spawnaAllaObjekt() {
+		while (!attSpawna.isEmpty()) {
+	    		log.fine("Spawnar ett gameobject");
+			SpecGameObject ettObjektAttSpawna = attSpawna.remove(0);
+			if (isTimeToSpawnNow(ettObjektAttSpawna)) {
+				spawnOneObject(ettObjektAttSpawna);
+			} else {
+				attSpawnaSenare.add(ettObjektAttSpawna);
+			}
+		}
+	}
+
+	private void createZoneSpawners() {
+		for (SpecGameObject enSpec : attSpawna) {
+			if (enSpec.getId() == ID.Zone) {
+				ZoneSpawner enZoneSpawner = new ZoneSpawner(enSpec, handler);
+				allaZonespawners.put(enSpec.getNamn(), enZoneSpawner);
+				handler.addObject(enZoneSpawner);
 			}
 		}
 	}
@@ -92,7 +100,11 @@ public class Spawner {
 			Zone enNyZone = new Zone(enSpec);
 			handler.addObject(enNyZone);
 			ZoneSpawner enZonSpawner = allaZonespawners.get(enSpec.getNamn());
-			enZonSpawner.add(enNyZone);
+			enZonSpawner.set(enNyZone);
+		} else if (enSpec.getId()==ID.WalkingMan) {
+			WalkingMan enGubbe = new WalkingMan(enSpec);
+			ZoneSpawner enZonSpawner = allaZonespawners.get(enSpec.getStartzon());
+			enZonSpawner.add(enGubbe);
 		}
 	}
 	

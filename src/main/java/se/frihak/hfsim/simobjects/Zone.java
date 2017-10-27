@@ -9,8 +9,9 @@ import se.frihak.hfsim.Game;
 public class Zone extends GameObject {
 	private int width;
 	private int height;
+	private String name;
 
-	public Zone(int x, int y, int width, int height) {
+	public Zone(int x, int y, int width, int height, String name) {
 		super(x, y, ID.Zone);
 		if (y >= Game.HEIGHT) {
 			setY(Game.HEIGHT);
@@ -18,10 +19,11 @@ public class Zone extends GameObject {
 		//TODO Fyll på med fler felkontroller här   x >= Game.WIDTH
 		this.width = width;
 		this.height = height;
+		this.name = name;
 	}
 
 	public Zone(SpecGameObject enSpec) {
-		this(1,1,1,1);
+		this(1,1,1,1, enSpec.getNamn());
 	}
 
 	public Rectangle getBounds() {

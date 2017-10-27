@@ -14,7 +14,7 @@ public class ZoneTest {
 	@Before
 	public void initera() {
 		zonstorlek = new Rectangle(10,10,50,100);
-		enZon = new Zone(zonstorlek.x, zonstorlek.y, zonstorlek.width, zonstorlek.height);
+		enZon = new Zone(zonstorlek.x, zonstorlek.y, zonstorlek.width, zonstorlek.height, "testnamn");
 	}
 	@Test
 	public void jamforBaraKoplats() {
