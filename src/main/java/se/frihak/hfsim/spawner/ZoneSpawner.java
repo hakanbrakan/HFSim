@@ -23,28 +23,12 @@ public class ZoneSpawner extends GameObject {
 		this.handler = handler;
 	}
 
-	public void set(Zone enNyZone) {
-		this.zoneAttSpawnaTill = enNyZone;
-	}
-
 	@Override
 	public void tick() {
 		spawnaSaMangaGubbarSomMojligt();
-	}
-
-	@Override
-	public void render(Graphics g) {
-		// Zonespawnwer ska inte rita ut sig
-	}
-
-	@Override
-	public Rectangle getBounds() {
-		// Denna finns inte på spelplanen
-		return null;
-	}
-
-	public void add(WalkingMan enGubbe) {
-		allaGubbar.add(enGubbe);
+		if (allaGubbar.isEmpty()) {
+			handler.removeObject(this);
+		}
 	}
 
 	private void spawnaSaMangaGubbarSomMojligt() {
@@ -54,6 +38,25 @@ public class ZoneSpawner extends GameObject {
 			System.out.println("spaaawn");
 			handler.addObject(allaGubbar.remove(0));
 		}
+	}
+	
+	public void add(WalkingMan enGubbe) {
+		allaGubbar.add(enGubbe);
+	}
+	
+	public void set(Zone enNyZone) {
+		this.zoneAttSpawnaTill = enNyZone;
+	}
+	
+	@Override
+	public void render(Graphics g) {
+		// Zonespawnwer ska inte rita ut sig
+	}
+	
+	@Override
+	public Rectangle getBounds() {
+		// Denna finns inte på spelplanen
+		return null;
 	}
 }
 

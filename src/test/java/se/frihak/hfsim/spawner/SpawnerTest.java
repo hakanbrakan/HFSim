@@ -17,9 +17,11 @@ public class SpawnerTest {
 	@Test
 	public void jamforBaraKoplats() {
 		
-		Spawner test = new Spawner(new Handler(), null, null, new HardkodadeSpawnerObjects());
+		Handler handler = new Handler();
+		Spawner test = new Spawner(handler , null, null, new HardkodadeSpawnerObjects());
 		test.tick();
 		test.tick();
+		handler.tick();
 //		assertEquals(zonstorlek, enZon.getBounds());
 	}
 

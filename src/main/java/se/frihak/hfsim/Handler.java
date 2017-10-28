@@ -15,7 +15,8 @@ public class Handler {
 	public int spd = 5;
 
 	public void tick() {
-		object.forEach(r -> r.tick());
+//		object.forEach(r -> r.tick()); //Denna ger concurrentmodification undantag
+		new ArrayList<>(object).forEach(r -> r.tick()); //Kopierar listan till en ny. Prestanda?
 //		for (int i = 0; i < object.size(); i++) {
 //			GameObject tempObject = object.get(i);
 //
