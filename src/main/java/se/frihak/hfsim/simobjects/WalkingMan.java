@@ -11,6 +11,7 @@ public class WalkingMan extends GameObject {
 
 	@Override
 	public void tick() {
+		System.out.println("walkingman tick");
 		// TODO Auto-generated method stub
 
 	}

@@ -60,6 +60,7 @@ public class Spawner {
 //		}
         
         spawnaDeSomHarVantat();
+        allaZonespawners.values().forEach(r -> r.tick());
 	}
 
 	private void spawnaDeSomHarVantat() {
@@ -88,7 +89,6 @@ public class Spawner {
 			if (enSpec.getId() == ID.Zone) {
 				ZoneSpawner enZoneSpawner = new ZoneSpawner(enSpec, handler);
 				allaZonespawners.put(enSpec.getNamn(), enZoneSpawner);
-				handler.addObject(enZoneSpawner);
 			}
 		}
 	}
