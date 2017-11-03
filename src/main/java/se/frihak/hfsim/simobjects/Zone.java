@@ -23,7 +23,7 @@ public class Zone extends GameObject {
 	}
 
 	public Zone(SpecGameObject enSpec) {
-		this(1,1,1,1, enSpec.getNamn());
+		this(enSpec.getX(),enSpec.getY(),enSpec.getWidth(),enSpec.getHeight(), enSpec.getNamn());
 	}
 
 	public Rectangle getBounds() {
@@ -36,5 +36,10 @@ public class Zone extends GameObject {
 	public void render(Graphics g) {
 		g.setColor(Color.GRAY);
 		g.drawRect((int) x, (int) y, width, height);
+	}
+
+	@Override
+	public String toString() {
+		return "Zone [name=" + name + "]";
 	}
 }

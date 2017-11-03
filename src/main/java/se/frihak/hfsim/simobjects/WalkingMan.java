@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public class WalkingMan extends GameObject {
+	private static final int WIDTH = 3;
+	private static final int HEIGHT = 3;
 
 	public WalkingMan(SpecGameObject enSpec) {
 		super(1, 1, ID.WalkingMan);
@@ -24,8 +26,7 @@ public class WalkingMan extends GameObject {
 
 	@Override
 	public Rectangle getBounds() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Rectangle((int) x, (int) y, WIDTH, HEIGHT);
 	}
 
 }

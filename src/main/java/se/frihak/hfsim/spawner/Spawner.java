@@ -50,8 +50,6 @@ public class Spawner {
         }
         
         spawnaAllaObjekt();
-		//Kolla om det finns mer att släppa ut på banan
-//		scoreKeep++;
 //
 //		if (scoreKeep >= 200) {
 //			scoreKeep = 0;
