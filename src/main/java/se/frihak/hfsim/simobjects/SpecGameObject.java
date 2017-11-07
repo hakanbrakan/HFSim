@@ -9,6 +9,7 @@ public class SpecGameObject {
 	private int y;
 	private int w;
 	private int h;
+	private String goal;
 
 	public SpecGameObject(ID id, String name, int x, int y, int w, int h) {
 		this.id = id;
@@ -19,9 +20,10 @@ public class SpecGameObject {
 		this.h = h;
 	}
 
-	public SpecGameObject(ID id, String name, String startzon) {
+	public SpecGameObject(ID id, String name, String startzon, String goalZone) {
 		this(id, name, 0,0,0,0);
 		this.startzon = startzon;
+		this.goal = goalZone;
 	}
 
 	public ID getId() {
@@ -50,6 +52,10 @@ public class SpecGameObject {
 
 	public int getHeight() {
 		return h;
+	}
+
+	public String getGoal() {
+		return goal;
 	}
 
 }

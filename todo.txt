@@ -1,13 +1,15 @@
 
+
+Bra att veta
+Testramverk - Mockito
+javax.validattion.constraints. assertTrue
+
+
 Kvar att göra:
 Nästa steg: En gubbe som går från zonA till zonC och då avslutas simuleringen
-	Spawner måste först ta ut alla zoner samt spara dem - hashmap?
 	när gubbe placeras "skickas" den till rätt startzon
-	zonen håller koll på alla gubbar
 	gubben håller koll på kommandon - gåtillzoner
 	
-	Placera gubbar i startzon
-		Spawna många till en zon - startsituation
 	Gubbe ska hitta till målzon
 	Avsluta simuleringen
 Skriva tester till det som finns, tex soner, wall mfl
@@ -33,6 +35,10 @@ http://alumni.media.mit.edu/~jorkin/goap.html
 
 Klart:
 ======
+	zonen håller koll på alla gubbar
+	Spawner måste först ta ut alla zoner samt spara dem - hashmap?
+	Placera gubbar i startzon
+		Spawna många till en zon - startsituation
 Ta bort loggning branch
 Skapa ny sida för todo	
 Merga loggning till master

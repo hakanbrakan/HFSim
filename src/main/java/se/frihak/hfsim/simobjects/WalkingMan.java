@@ -7,14 +7,15 @@ import java.awt.Rectangle;
 public class WalkingMan extends GameObject {
 	private static final int WIDTH = 5;
 	private static final int HEIGHT = 5;
+	private String goalZone;
 
 	public WalkingMan(SpecGameObject enSpec) {
 		super(1, 1, ID.WalkingMan);
+		this.goalZone = enSpec.getGoal();
 	}
 
 	@Override
 	public void tick() {
-		System.out.println("walkingman tick");
 		// TODO Auto-generated method stub
 
 	}
