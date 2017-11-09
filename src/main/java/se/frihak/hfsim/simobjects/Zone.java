@@ -2,6 +2,7 @@ package se.frihak.hfsim.simobjects;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.Rectangle;
 
 import se.frihak.hfsim.Game;
@@ -37,9 +38,19 @@ public class Zone extends GameObject {
 		g.setColor(Color.GRAY);
 		g.drawRect((int) x, (int) y, width, height);
 	}
+	
+	public Point nereast(Point from) {
+		int x1 = (int) Math.max(Math.min(from.getX(), x+width), x);
+		int y1 = (int) Math.max(Math.min(from.getY(), y+height), y);
+		return new Point(x1, y1);
+	}
 
 	@Override
 	public String toString() {
 		return "Zone [name=" + name + "]";
+	}
+
+	public String getName() {
+		return name;
 	}
 }

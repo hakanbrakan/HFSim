@@ -7,7 +7,6 @@ javax.validattion.constraints. assertTrue
 
 Kvar att göra:
 Nästa steg: En gubbe som går från zonA till zonC och då avslutas simuleringen
-	när gubbe placeras "skickas" den till rätt startzon
 	gubben håller koll på kommandon - gåtillzoner
 	
 	Gubbe ska hitta till målzon
@@ -35,6 +34,7 @@ http://alumni.media.mit.edu/~jorkin/goap.html
 
 Klart:
 ======
+	när gubbe placeras "skickas" den till rätt startzon
 	zonen håller koll på alla gubbar
 	Spawner måste först ta ut alla zoner samt spara dem - hashmap?
 	Placera gubbar i startzon

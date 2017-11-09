@@ -21,7 +21,7 @@ public class Wall extends GameObject {
 	}
 
 	public Wall(SpecGameObject enSpec) {
-		this(1,1,1,1);
+		this(enSpec.getX(),enSpec.getY(),enSpec.getWidth(),enSpec.getHeight());
 	}
 
 	public Rectangle getBounds() {

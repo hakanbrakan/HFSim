@@ -100,7 +100,7 @@ public class Spawner {
 			ZoneSpawner enZonSpawner = allaZonespawners.get(enSpec.getNamn());
 			enZonSpawner.set(enNyZone);
 		} else if (enSpec.getId()==ID.WalkingMan) {
-			WalkingMan enGubbe = new WalkingMan(enSpec);
+			WalkingMan enGubbe = new WalkingMan(enSpec, handler);
 			ZoneSpawner enZonSpawner = allaZonespawners.get(enSpec.getStartzon());
 			enZonSpawner.add(enGubbe);
 		}

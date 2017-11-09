@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 import se.frihak.hfsim.simobjects.GameObject;
 
@@ -60,5 +62,9 @@ public class Handler {
 //			}
 		}
 
+	}
+
+	public Stream<GameObject> getObjects(Predicate<? super GameObject> vilkaGameobjects) {
+		return object.stream().filter(vilkaGameobjects);
 	}
 }
