@@ -88,7 +88,7 @@ public class ZoneSpawner {
 	
 	public void set(Zone enNyZone) {
 		this.zoneAttSpawnaTill = enNyZone;
-		if (Math.abs(Game.WIDTH - enNyZone.getX()) < Math.abs(Game.WIDTH - enNyZone.getBounds().getMaxX())) {
+		if (Math.abs(Game.WIDTH/2 - enNyZone.getX()) < Math.abs(Game.WIDTH/2 - enNyZone.getBounds().getMaxX())) {
 			xFrom = enNyZone.getX();
 			xTo = enNyZone.getBounds().getMaxX();
 		} else {
@@ -98,7 +98,7 @@ public class ZoneSpawner {
 		xDirection = Math.signum(xTo - xFrom);
 		
 		
-		if (Math.abs(Game.HEIGHT - enNyZone.getY()) < Math.abs(Game.HEIGHT - enNyZone.getBounds().getMaxY())) {
+		if (Math.abs(Game.HEIGHT/2 - enNyZone.getY()) < Math.abs(Game.HEIGHT/2 - enNyZone.getBounds().getMaxY())) {
 			yFrom = enNyZone.getY();
 			yTo = enNyZone.getBounds().getMaxY();
 		} else {

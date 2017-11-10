@@ -8,10 +8,7 @@ import java.awt.image.BufferStrategy;
 import java.util.Random;
 import java.util.logging.Logger;
 
-import se.frihak.hfsim.simobjects.ID;
-import se.frihak.hfsim.simobjects.Zone;
 import se.frihak.hfsim.spawner.EnAnnanHardkodadSpelplan;
-import se.frihak.hfsim.spawner.HardkodadeSpawnerObjects;
 import se.frihak.hfsim.spawner.Spawner;
 
 

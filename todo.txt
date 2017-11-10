@@ -1,11 +1,6 @@
 
-
-Bra att veta
-Testramverk - Mockito
-javax.validattion.constraints. assertTrue
-
-
 Kvar att göra:
+Debugga i frame dvs ett tick per knapptryck
 Skriva tester till det som finns, tex zoner, wall mfl
 gubben håller koll på kommandon - gåtillzoner
 I framtiden byta x y width height till rectangle
@@ -20,6 +15,16 @@ När tar simuleringen slut?
 Rutt eller möjligen kommands är delmål
 	tex zon a, c, ståstill 3min , d e
 	stanna, move, spring, vänta, removeobj, goalreached
+Mockito
+Testramverk - Mockito
+javax.validattion.constraints. assertTrue
+<dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+
 
 Länkar att läsa
 http://gameprogrammingpatterns.com/game-loop.html
@@ -30,6 +35,7 @@ http://alumni.media.mit.edu/~jorkin/goap.html
 
 Klart:
 ======
+Ta reda på varför de spawnas på fel ställe
 Nästa steg: En gubbe som går från zonA till zonC och då avslutas simuleringen
 	Avsluta simuleringen
 	Gubbe ska hitta till målzon
