@@ -35,4 +35,9 @@ public class Wall extends GameObject {
 		g.setColor(Color.RED);
 		g.fillRect((int) x, (int) y, width, height);
 	}
+
+	@Override
+	public boolean isOKAttAvslutaSimulering() {
+		return true;
+	}
 }

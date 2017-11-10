@@ -53,4 +53,9 @@ public class Zone extends GameObject {
 	public String getName() {
 		return name;
 	}
+
+	@Override
+	public boolean isOKAttAvslutaSimulering() {
+		return true;
+	}
 }

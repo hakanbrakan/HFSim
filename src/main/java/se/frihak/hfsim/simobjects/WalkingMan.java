@@ -17,6 +17,7 @@ public class WalkingMan extends GameObject {
 	private Handler handler;
 	private Zone goalZone;
 	private Point goalPoint;
+	private boolean okAttAvsluta = false; 
 
 	public WalkingMan(SpecGameObject enSpec, Handler handler) {
 		super(1, 1, ID.WalkingMan);
@@ -57,6 +58,7 @@ public class WalkingMan extends GameObject {
 		
 		if (goalReached(goalZone, x, y)) {
 			handler.removeObject(this);
+			okAttAvsluta = true;
 		}
 
 		addTrail(shouldAddTrail );
@@ -76,7 +78,6 @@ public class WalkingMan extends GameObject {
 	public void render(Graphics g) {
 		g.setColor(Color.BLUE);
 		g.fillRect((int) x, (int) y, WIDTH, HEIGHT);
-		System.out.println("x: "+x+"  y: "+y);
 	}
 
 	@Override
@@ -88,6 +89,11 @@ public class WalkingMan extends GameObject {
 	protected void finalize() throws Throwable {
 		System.out.println("destruerar WalkingMan");
 		super.finalize();
+	}
+
+	@Override
+	public boolean isOKAttAvslutaSimulering() {
+		return okAttAvsluta;
 	}
 
 }

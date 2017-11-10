@@ -8,6 +8,8 @@ import java.awt.image.BufferStrategy;
 import java.util.Random;
 import java.util.logging.Logger;
 
+import se.frihak.hfsim.simobjects.ID;
+import se.frihak.hfsim.simobjects.Zone;
 import se.frihak.hfsim.spawner.EnAnnanHardkodadSpelplan;
 import se.frihak.hfsim.spawner.HardkodadeSpawnerObjects;
 import se.frihak.hfsim.spawner.Spawner;
@@ -132,6 +134,15 @@ public class Game extends Canvas implements Runnable {
 //						handler.addObject(
 //								new MenuPartical(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.MenuPartical, handler));
 //					}
+				}
+				boolean keepOn = handler
+						.getObjects((i) -> !i.isOKAttAvslutaSimulering())
+						.findAny()
+						.isPresent();
+
+				if (!keepOn) {
+					gameState = STATE.End;
+					handler.clearEnemys();
 				}
 			}
 		} else if (gameState == STATE.Menu || gameState == STATE.End || gameState == STATE.Select

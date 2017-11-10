@@ -60,4 +60,6 @@ public abstract class GameObject {
 	public float getVelY() {
 		return velY;
 	}
+
+	public abstract boolean isOKAttAvslutaSimulering();
 }

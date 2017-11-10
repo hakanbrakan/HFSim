@@ -6,12 +6,8 @@ javax.validattion.constraints. assertTrue
 
 
 Kvar att göra:
-Nästa steg: En gubbe som går från zonA till zonC och då avslutas simuleringen
-	gubben håller koll på kommandon - gåtillzoner
-	
-	Gubbe ska hitta till målzon
-	Avsluta simuleringen
-Skriva tester till det som finns, tex soner, wall mfl
+Skriva tester till det som finns, tex zoner, wall mfl
+gubben håller koll på kommandon - gåtillzoner
 I framtiden byta x y width height till rectangle
 Escape ska ta fram menyn där man kan välja att avsluta
 Skapa spawner från fil
@@ -34,6 +30,9 @@ http://alumni.media.mit.edu/~jorkin/goap.html
 
 Klart:
 ======
+Nästa steg: En gubbe som går från zonA till zonC och då avslutas simuleringen
+	Avsluta simuleringen
+	Gubbe ska hitta till målzon
 	när gubbe placeras "skickas" den till rätt startzon
 	zonen håller koll på alla gubbar
 	Spawner måste först ta ut alla zoner samt spara dem - hashmap?
