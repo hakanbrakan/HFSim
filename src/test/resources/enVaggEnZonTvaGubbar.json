@@ -1,0 +1,32 @@
+{
+   "Simobjects": [
+      {
+         "ID": "Wall",
+         "Name": "W",
+         "x": 400,
+         "y": 21,
+         "Width": 50,
+         "Height": 100
+      },
+      {
+         "ID": "Zone",
+         "Name": "ZonA",
+         "x": 400,
+         "y": 21,
+         "Width": 50,
+         "Height": 100
+      },
+      {
+         "ID": "WalkingMan",
+         "Name": "Kalle",
+         "Start": "ZonA",
+         "Goal": "ZonB"
+      },
+      {
+         "ID": "WalkingMan",
+         "Name": "Pelle",
+         "Start": "ZonB",
+         "Goal": "ZonC"
+      }
+   ]
+}

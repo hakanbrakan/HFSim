@@ -5,7 +5,6 @@ Skriva tester till det som finns, tex zoner, wall mfl
 gubben håller koll på kommandon - gåtillzoner
 I framtiden byta x y width height till rectangle
 Escape ska ta fram menyn där man kan välja att avsluta
-Skapa spawner från fil
 
 Avstånd i meter - Converterklass
 Tid i minuter o sekunder
@@ -26,15 +25,9 @@ javax.validattion.constraints. assertTrue
     </dependency>
 
 
-Länkar att läsa
-http://gameprogrammingpatterns.com/game-loop.html
-http://gameprogrammingpatterns.com/contents.html
-https://lwjglgamedev.gitbooks.io/3d-game-development-with-lwjgl/content/chapter2/chapter2.html
-http://web.archive.org/web/20140402204854/http://www.altdevblogaday.com/2011/02/24/introduction-to-behavior-trees/
-http://alumni.media.mit.edu/~jorkin/goap.html
-
 Klart:
 ======
+Skapa spawner från jsonfil
 Ta reda på varför de spawnas på fel ställe
 Nästa steg: En gubbe som går från zonA till zonC och då avslutas simuleringen
 	Avsluta simuleringen
@@ -63,6 +56,13 @@ https://stackoverflow.com/questions/194765/how-do-i-get-java-logging-output-to-a
 https://github.com/GoogleCloudPlatform/getting-started-java/blob/master/bookshelf-standard/5-logging/src/main/webapp/WEB-INF/logging.properties
 http://docs.oracle.com/javase/7/docs/api/index.html?java/util/logging/SimpleFormatter.html
 https://stackoverflow.com/questions/9457976/java-logging-where-is-my-log-file
+
+Länkar att läsa
+http://gameprogrammingpatterns.com/game-loop.html
+http://gameprogrammingpatterns.com/contents.html
+https://lwjglgamedev.gitbooks.io/3d-game-development-with-lwjgl/content/chapter2/chapter2.html
+http://web.archive.org/web/20140402204854/http://www.altdevblogaday.com/2011/02/24/introduction-to-behavior-trees/
+http://alumni.media.mit.edu/~jorkin/goap.html
 
 
 
