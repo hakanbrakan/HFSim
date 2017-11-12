@@ -1,20 +1,21 @@
 
 Kvar att göra:
-Debugga i frame dvs ett tick per knapptryck
+==============
 Skriva tester till det som finns, tex zoner, wall mfl
-gubben håller koll på kommandon - gåtillzoner
+Gubben håller koll på kommandon - gåtillzoner
 I framtiden byta x y width height till rectangle
 Escape ska ta fram menyn där man kan välja att avsluta
+Bygg gameobjects enl component pattern?
+Debugga i frame dvs ett tick per knapptryck
+Köra och åtgärda coverage
 
-Avstånd i meter - Converterklass
 Tid i minuter o sekunder
 När tar simuleringen slut? 
 	Alla movingobjects borta?
-	Alla mål uppfullda?
+	Alla mål uppfyllda?
 Rutt eller möjligen kommands är delmål
 	tex zon a, c, ståstill 3min , d e
 	stanna, move, spring, vänta, removeobj, goalreached
-Mockito
 Testramverk - Mockito
 javax.validattion.constraints. assertTrue
 <dependency>
@@ -23,10 +24,18 @@ javax.validattion.constraints. assertTrue
       <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
+Köra repris på en simulering - kräver att simuleringen loggade alla rörelser
+En fil som specar 100 gubbar av den sorten
+simulering startar m att initiera alla gubbar. Skapa dessa 100 o lägg dem i en kö i rätt ordning som de ska 
+placeras ut på plan om de får plats. En apperancequeue. Varje gubbe har ett startnr som de får i initfasen
+Skapa ett transformerobjekt från "100 gubbar" till dessa 100 i rätt ordning. - Klar
+Game loop i egen tråd? Ta bästa exemplet på game loop från http:....
+Gui som skapar fil.
 
 
 Klart:
 ======
+Avstånd i meter - Converterklass
 Skapa spawner från jsonfil
 Ta reda på varför de spawnas på fel ställe
 Nästa steg: En gubbe som går från zonA till zonC och då avslutas simuleringen
@@ -40,14 +49,18 @@ Nästa steg: En gubbe som går från zonA till zonC och då avslutas simuleringe
 Ta bort loggning branch
 Skapa ny sida för todo	
 Merga loggning till master
-<br>Få igång loggning
-<br>Checka in när en bra status
-<br>Workspace ska vara mavenproj o ha mvnstd på kataloger. 
-<br>Skapa workspace i eclipse kopplat till github
-<br>Testa checka in fil på github 
-<br>Koppla lokalt gitrepo till github
-<br>Göra helloworld på Github
-<br>Skapa githubkonto
+klasser ska ha testklasser
+I Git checka in enkel htmlsida m mina länkar för detta proj, tex för component pattern
+Få igång loggning
+Checka in när en bra status
+Workspace ska vara mavenproj o ha mvnstd på kataloger. 
+Skapa workspace i eclipse kopplat till github
+Testa checka in fil på github 
+Koppla lokalt gitrepo till github
+Göra helloworld på Github
+Skapa githubkonto
+första försöket är busenkel AI. Två gubbar som går spikrakt åt motsatt håll
+kanske den ena startar lite senare än den andra
 
 
 
@@ -64,129 +77,7 @@ https://lwjglgamedev.gitbooks.io/3d-game-development-with-lwjgl/content/chapter2
 http://web.archive.org/web/20140402204854/http://www.altdevblogaday.com/2011/02/24/introduction-to-behavior-trees/
 http://alumni.media.mit.edu/~jorkin/goap.html
 
+https://gamedev.stackexchange.com
 
 
-Förslag Java 8
-==============
-findFirst/orElse
-Kommentar: StreamSupport används för att iterera över den ”dolda” listan i AllaSkador-klassen
 
-Före
-Skadeid förslagFinns = Skadeid.NOLL;
-for (SkadaUtökadInfo skada : allaSkador) {
-List<Ersättningsförslag> förslag = fasad.hämtaErsättningsförslag(skada);
-if (!förslag.isEmpty()) {
-förslagFinns = skada.getSkadeid();
-break;
-}
-}
- 
-return förslagFinns;
-
-Efter
-StreamSupport.stream(allaSkador.spliterator(), false)
-.filter(skada -> !fasad.hämtaErsättningsförslag(skada).isEmpty())
-.map(SkadaBasInfo::getSkadeid)
-.findFirst()
-.orElse(Skadeid.NOLL);
-
-AnyMatch
-Kommentar: före-koden använde Guavas filter-metod, dvs Googles bibliotek som gav ”lambda”-stöd redan i Java 7.
-
-Före
-Collection<Resultat> allaResultatSomInnehållerRegelfel = filter(allaResultat.values(),
-new Predicate<Resultat>() {
- 
-@Override
-public boolean apply(Resultat input) {
-return input.innehållerRegelfel();
-}
-});
-return !allaResultatSomInnehållerRegelfel.isEmpty();
-
-Efter
-return allaResultat.values().stream()
-.anyMatch(Resultat::innehållerRegelfel);
-
-
-FlatMap
-Kommentar: jämför de fetmarkerade delarna, if-satsen bröts ut för att förtydliga efter-koden ytterligare
-
-Före
-List<Utlägg> förslag = new ArrayList<>();
-Set<Skadeid> skador = hämtaSkadorFrånResultat();
-for (Skadeid skadeid: skador) {
-//Det kan finnas utlägg i anspråket som inte kan bli förslag, medan andra utlägg kan bli förslag:
-if (innehållerEndastSpecifikaRegelfel(skadeid, REGELFEL_TILLÅTNA_FÖR_FÖRSLAG) 
-        || innehållerNågotAv(skadeid, REGELFEL_KANSKAPAFÖRSLAGFÖRUTLÄGG)) {
-for (Utlägg utlägg : hämtaResultatFörSkada(skadeid).keySet()) {
-Resultat resultatFörDettaUtlägg = allaResultat.get(utlägg);
-if (!resultatFörDettaUtlägg.innehållerRegelfel()
-|| resultatFörDettaUtlägg.harEndastSpecifikaRegelfel(REGELFEL_TILLÅTNA_FÖR_FÖRSLAG)
-|| medicinutläggBehöverJusteras(resultatFörDettaUtlägg)) {
-förslag.add(utlägg);
-}
-}
-}
-}
-return förslag;
-
-Efter
-Set<Skadeid> skador = hämtaSkadorFrånResultat();
-return skador.stream()
-.filter(skadeid -> innehållerEndastSpecifikaRegelfel(skadeid, REGELFEL_TILLÅTNA_FÖR_FÖRSLAG)
-|| innehållerNågotAv(skadeid, REGELFEL_KANSKAPAFÖRSLAGFÖRUTLÄGG))
-.flatMap(skadeid -> hämtaResultatFörSkada(skadeid).keySet().stream())
-.filter(this::skaBliFörslag)
-.sorted(this::sorteraBeloppFallande)
-.collect(toList());
-
-==============
-
-Noteringar från landet:
-
-Börja fundera på filformat för simuleringsfilerna
-	json?
-	struktur på objekt
-		namn
-		x1,y1,x2,y2
-		zoner
-		typer
-			solid
-			gåtillzon
-
-klasser ska ha testklasser
-I Git checka in enkel htmlsida m mina länkar för detta proj, tex för component pattern
-
-
-Man kanske ska dela upp simuleringsfilen i två. en för kartan med zoner man ska gå till och en med
-genererade gubbar.
-säg att man specar 100 gubbar av den sorten med det målet som kommer var x:e sekund samt två stillastående
-gubbar, då kan en generator skapa alla dessa gubbar med starttider och platser så kan man sedan utifrån 
-samma resandeström se hur det blir med olika hinder på vägen tex i form av en ny vägg helt plötsligt
-eller med en stillastående gubbe mitt i osv.
-
-Nya tankar 20170805
-En fil som specar 100 gubbar av den sorten
-simulering startar m att initiera alla gubbar. Skapa dessa 100 o lägg dem i en kö i rätt ordning som de ska 
-placeras ut på plan om de får plats. En apperancequeue. Varje gubbe har ett startnr som de får i initfasen
-Skapa ett transformerobjekt från "100 gubbar" till dessa 100 i rätt ordning. - Klar
-
-Skapa gui som öppnar simuleringsfil o kör simuleringen, kanske i annat fönster
-	för att öht taget komma igång o göra något så börjar vi enkelt m steg 1
-	öppna o läsa in fil (json?)
-		file open - simuleringsfil
-		jackson el dyl, kanske java8 förstår json
-	skapa simuleringsfil
-		två väggar, startzon, slutzon, två gubbar
-	starta sim m animerade gubbar
-		första försöket är busenkel AI. Två gubbar som går spikrakt åt motsatt håll
-			kanske den ena startar lite senare än den andra
-		game loop i egen tråd?
-			ta bästa exemplet på game loop från http:....
-		Bygg gubbarna enl component pattern
-
-
-Köra repris på en simulering - kräver att simuleringen loggade alla rörelser
-
-Gui som skapar fil o kanske genererar upp alla gubbar.
