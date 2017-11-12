@@ -1,6 +1,6 @@
 package se.frihak.hfsim.spawner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -143,7 +143,7 @@ public class SpawnerObjectsFromJsonTest {
 	}
 
 	@Test
-	public void objectsFromJsonFile() {
+	public void objectsFromJsonFile() throws IOException {
 		JSONObject json = jsonFromFile("enVaggEnZonTvaGubbar.json");
 	        
 		SpawnerObjects objects = new SpawnerObjectsFromJson(json);
@@ -152,15 +152,12 @@ public class SpawnerObjectsFromJsonTest {
 		assertEquals(4, listan.size());
 	}
 
-	private JSONObject jsonFromFile(String filnamn) {
+	private JSONObject jsonFromFile(String filnamn) throws IOException {
 		InputStream fis = Thread.currentThread().getContextClassLoader().getResourceAsStream(filnamn);
 		JSONTokener x = new JSONTokener(fis);
 		JSONObject json = new JSONObject(x);
-		try {
-			fis.close();
-		} catch (IOException e) {
-			fail("felmedd: " + e.getMessage());
-		}
+		fis.close();
+
 		return json;
 	}
 }

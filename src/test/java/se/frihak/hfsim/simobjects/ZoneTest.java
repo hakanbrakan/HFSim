@@ -1,6 +1,7 @@
 package se.frihak.hfsim.simobjects;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -42,5 +43,14 @@ public class ZoneTest {
 		assertEquals(88, enZon.nereast(mittI).getY(), 0d);
 
 	}
+	
+	@Test
+	public void avslutaSimulering() {
+		assertTrue(enZon.isOKAttAvslutaSimulering());
+	}
 
+	@Test
+	public void testToString() {
+		assertEquals("Zone [name=testnamn]", enZon.toString());
+	}
 }
