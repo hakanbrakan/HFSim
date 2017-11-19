@@ -86,6 +86,7 @@ public class SpawnerObjectsFromJsonTest {
 	            "   \"Name\": \"Kalle\", " +
 	            "   \"Start\" : \"ZonA\", " +
 	            "   \"Goal\" : \"ZonB\", " +
+	            "   \"Commands\": [{ \"ID\": \"Rest\", \"Time\": \"10\" },{ \"ID\": \"GoTo\", \"ZoneName\": \"ZonB\" }]" +
 	            "  }" +
 	            "  ]" +
 	            "}";
@@ -127,6 +128,7 @@ public class SpawnerObjectsFromJsonTest {
 	            "   \"Name\": \"Kalle\", " +
 	            "   \"Start\" : \"ZonA\", " +
 	            "   \"Goal\" : \"ZonB\", " +
+	            "   \"Commands\": [{ \"ID\": \"Rest\", \"Time\": \"10\" },{ \"ID\": \"GoTo\", \"ZoneName\": \"ZonB\" }]" +
 	            "  }" +
 	            "  ]" +
 	            "}";

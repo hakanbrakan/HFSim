@@ -20,13 +20,22 @@
          "ID": "WalkingMan",
          "Name": "Kalle",
          "Start": "ZonA",
-         "Goal": "ZonB"
+         "Goal": "ZonB",
+         "Commands": [
+		    { "ID": "Rest", "Time": "10" },
+            { "ID": "GoTo", "ZoneName": "ZonB" }
+         ]
       },
       {
          "ID": "WalkingMan",
          "Name": "Pelle",
          "Start": "ZonB",
-         "Goal": "ZonC"
+         "Goal": "ZonC",
+         "Commands": [
+            { "ID": "GoTo", "ZoneName": "ZonC" },
+		    { "ID": "Rest", "Time": "10" },
+            { "ID": "GoTo", "ZoneName": "ZonA" }
+         ]
       }
    ]
 }

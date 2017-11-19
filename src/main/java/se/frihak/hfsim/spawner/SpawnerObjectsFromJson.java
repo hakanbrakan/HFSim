@@ -3,6 +3,7 @@ package se.frihak.hfsim.spawner;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.json.JSONObject;
 
@@ -35,8 +36,13 @@ public class SpawnerObjectsFromJson implements SpawnerObjects {
 			dessaObjektSkallSpawnas.add(new SpecGameObject(ID.Wall, jsonObj.getString("Name"), jsonObj.getInt("x"),	jsonObj.getInt("y"), jsonObj.getInt("Width"), jsonObj.getInt("Height")));
 		} else if (jsonObj.getString("ID").equals(ID.Zone.toString())) {
 			dessaObjektSkallSpawnas.add(new SpecGameObject(ID.Zone, jsonObj.getString("Name"), jsonObj.getInt("x"),	jsonObj.getInt("y"), jsonObj.getInt("Width"), jsonObj.getInt("Height")));
-		} else 		if (jsonObj.getString("ID").equals(ID.WalkingMan.toString())) {
-			dessaObjektSkallSpawnas.add(new SpecGameObject(ID.Wall, jsonObj.getString("Name"), jsonObj.getString("Start"),	jsonObj.getString("Goal")));
+		} else if (jsonObj.getString("ID").equals(ID.WalkingMan.toString())) {
+			SpecGameObject spec = new SpecGameObject(ID.Wall, jsonObj.getString("Name"), jsonObj.getString("Start"), jsonObj.getString("Goal"));
+			for (Object object : jsonObj.getJSONArray("Commands")) {
+				Map<String, Object> cmdMap = ((JSONObject)object).toMap();
+				spec.add(cmdMap);
+			}
+			dessaObjektSkallSpawnas.add(spec);
 		}
 	}
 }

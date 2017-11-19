@@ -1,5 +1,9 @@
 package se.frihak.hfsim.simobjects;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 public class SpecGameObject {
 
 	private ID id;
@@ -10,6 +14,7 @@ public class SpecGameObject {
 	private int w;
 	private int h;
 	private String goal;
+	private List<Map<String, Object>> commands;
 
 	public SpecGameObject(ID id, String name, int x, int y, int w, int h) {
 		this.id = id;
@@ -56,6 +61,13 @@ public class SpecGameObject {
 
 	public String getGoal() {
 		return goal;
+	}
+
+	public void add(Map<String, Object> cmdMap) {
+		if (commands == null) {
+			commands = new LinkedList<>();
+		}
+		commands.add(cmdMap);
 	}
 
 }
