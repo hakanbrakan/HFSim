@@ -23,6 +23,7 @@ public class SpecGameObject {
 		this.y = y;
 		this.w = w;
 		this.h = h;
+		commands = new LinkedList<>();
 	}
 
 	public SpecGameObject(ID id, String name, String startzon, String goalZone) {
@@ -64,10 +65,11 @@ public class SpecGameObject {
 	}
 
 	public void add(Map<String, Object> cmdMap) {
-		if (commands == null) {
-			commands = new LinkedList<>();
-		}
 		commands.add(cmdMap);
+	}
+
+	public List<Map<String, Object>> getCommands() {
+		return commands;
 	}
 
 }

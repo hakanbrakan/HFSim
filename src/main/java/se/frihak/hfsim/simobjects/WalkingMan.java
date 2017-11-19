@@ -4,10 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.util.logging.Logger;
-import java.util.stream.Stream;
+import java.util.LinkedList;
+import java.util.List;
 
 import se.frihak.hfsim.Handler;
+import se.frihak.hfsim.simobjects.commands.WalkingManCommand;
 
 public class WalkingMan extends GameObject {
 	private static final int WIDTH = 5;
@@ -17,7 +18,8 @@ public class WalkingMan extends GameObject {
 	private Handler handler;
 	private Zone goalZone;
 	private Point goalPoint;
-	private boolean okAttAvsluta = false; 
+	private boolean okAttAvsluta = false;
+	private List<WalkingManCommand> myCommands = new LinkedList<>(); 
 
 	public WalkingMan(SpecGameObject enSpec, Handler handler) {
 		super(1, 1, ID.WalkingMan);
@@ -45,8 +47,8 @@ public class WalkingMan extends GameObject {
 		float diffY = (float) (y - goalPoint.getY());
 		float distance = (float) Math.sqrt(diffX*diffX + diffY*diffY);
 
-		velX = (float) ((-1 / distance) * diffX);
-		velY = (float) ((-1 / distance) * diffY);
+		velX = (-1 / distance) * diffX;
+		velY = (-1 / distance) * diffY;
 
 //		if (y <= 0 || y >= Game.HEIGHT - 32) {
 //			velY *= -1;
@@ -57,8 +59,7 @@ public class WalkingMan extends GameObject {
 //		}
 		
 		if (goalReached(goalZone, x, y)) {
-			handler.removeObject(this);
-			okAttAvsluta = true;
+			finishSimulating();
 		}
 
 		addTrail(shouldAddTrail );
@@ -94,6 +95,20 @@ public class WalkingMan extends GameObject {
 	@Override
 	public boolean isOKAttAvslutaSimulering() {
 		return okAttAvsluta;
+	}
+
+	public void add(WalkingManCommand cmd) {
+		myCommands.add(cmd);
+	}
+
+	public void removeCommand(WalkingManCommand commandRest) {
+		myCommands.remove(commandRest);
+	}
+
+	public void finishSimulating() {
+		okAttAvsluta = true;
+		myCommands.clear();
+		handler.removeObject(this);
 	}
 
 }

@@ -1,13 +1,22 @@
 
+
+
+
+[katatjuta33](https://www.geocaching.com/profile/?u=katatjuta33) har använt [Project-GC](https://project-gc.com/Challenges/GC79K8D/27863 "Project-GC Challenge Checker") för att se om hen uppfyller kraven för denna utmaning och det gör hon/han.
+
+User has 128 finds (100 needed).Filters:( county:Strängnäs ,  country:Sweden)
+
+
+
+
 Kvar att göra:
 ==============
-Skriva tester till det som finns, tex zoner, wall mfl
 Gubben håller koll på kommandon - gåtillzoner
 I framtiden byta x y width height till rectangle
 Escape ska ta fram menyn där man kan välja att avsluta
 Bygg gameobjects enl component pattern?
-Debugga i frame dvs ett tick per knapptryck
 Köra och åtgärda coverage
+Debugga i frame dvs ett tick per knapptryck
 
 Tid i minuter o sekunder
 När tar simuleringen slut? 
@@ -35,6 +44,7 @@ Gui som skapar fil.
 
 Klart:
 ======
+Skriva tester till det som finns, tex zoner, wall mfl
 Avstånd i meter - Converterklass
 Skapa spawner från jsonfil
 Ta reda på varför de spawnas på fel ställe
@@ -78,6 +88,59 @@ http://web.archive.org/web/20140402204854/http://www.altdevblogaday.com/2011/02/
 http://alumni.media.mit.edu/~jorkin/goap.html
 
 https://gamedev.stackexchange.com
+http://www.java2s.com/Tutorials/Java/java.nio.file/Files/Java_Files_readAllLines_Path_path_Charset_cs_.htm
+
+
+
+
+Java libraries you cant miss
+https://developer.github.com/v3/
+https://developer.github.com/v3/repos/#list-organization-repositories
+
+github.com/aalmiray/javatrovel/
+
+spring-framework
+
+lombok
+        bort boilerplate
+        builderpattern https://stackoverflow.com/questions/36909672/how-to-use-lombok-builder-annotation-on-methods
+        equals hash @EqualsAndHashCode(exclude={"id", "shape"})
+        tostring   @ToString(includeFieldNames=true)
+
+slf4j slf5j.org
+        wraps all other
+        varargs bättre prestanda
+
+okhttp square.github.io/okhttp
+        mkt enkel att anv
+        kör även http2
+okhttp square.github.io/retrofit
+
+jdeferred.org
+
+reactivex.io
+        rxjava
+
+
+test
+====
+
+github.com/bennidi/mbassador
+        skicka events mellan komponeneter
+        liten utveckling deprecated?
+
+mockito
+
+github.com/awaitility/awaitility
+
+wiremock.org
+        test restservice
+        
+        
+        
+        
+        
+ 
 
 
 

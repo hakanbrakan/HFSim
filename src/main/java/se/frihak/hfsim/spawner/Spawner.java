@@ -1,7 +1,6 @@
 package se.frihak.hfsim.spawner;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,12 +10,16 @@ import java.util.logging.Logger;
 import se.frihak.hfsim.Game;
 import se.frihak.hfsim.Handler;
 import se.frihak.hfsim.HeadUpDisplay;
-import se.frihak.hfsim.simobjects.GameObject;
 import se.frihak.hfsim.simobjects.ID;
 import se.frihak.hfsim.simobjects.SpecGameObject;
 import se.frihak.hfsim.simobjects.WalkingMan;
 import se.frihak.hfsim.simobjects.Wall;
 import se.frihak.hfsim.simobjects.Zone;
+import se.frihak.hfsim.simobjects.commands.CommandFinishedSimulating;
+import se.frihak.hfsim.simobjects.commands.CommandGoTo;
+import se.frihak.hfsim.simobjects.commands.CommandID;
+import se.frihak.hfsim.simobjects.commands.CommandRest;
+import se.frihak.hfsim.simobjects.commands.WalkingManCommand;
 
 public class Spawner {
 	private Logger log = Logger.getLogger(this.getClass().getName());
@@ -30,6 +33,8 @@ public class Spawner {
 	private List<SpecGameObject> attSpawna;
 	private List<SpecGameObject> attSpawnaSenare;
 	private Map<String, ZoneSpawner> allaZonespawners;
+
+	private WalkingManCommand cmdFinishedSimulating = new CommandFinishedSimulating();
 
 	public Spawner(Handler handler, HeadUpDisplay hud, Game game, SpawnerObjects objs) {
 		this.handler = handler;
@@ -100,10 +105,30 @@ public class Spawner {
 			ZoneSpawner enZonSpawner = allaZonespawners.get(enSpec.getNamn());
 			enZonSpawner.set(enNyZone);
 		} else if (enSpec.getId()==ID.WalkingMan) {
-			WalkingMan enGubbe = new WalkingMan(enSpec, handler);
-			ZoneSpawner enZonSpawner = allaZonespawners.get(enSpec.getStartzon());
-			enZonSpawner.add(enGubbe);
+			spawnOneWalkingMan(enSpec);
 		}
+	}
+
+	private void spawnOneWalkingMan(SpecGameObject enSpec) {
+		WalkingMan enGubbe = new WalkingMan(enSpec, handler);
+		ZoneSpawner enZonSpawner = allaZonespawners.get(enSpec.getStartzon());
+		enZonSpawner.add(enGubbe);
+		
+		for (Map<String, Object> ettKommando : enSpec.getCommands()) {
+			WalkingManCommand cmd;
+			String kommandotyp = (String) ettKommando.get("ID");
+
+			if (kommandotyp.equals(CommandID.GoTo.toString())) {
+				cmd = new CommandGoTo((String) ettKommando.get("ZoneName"));
+			} else if (kommandotyp.equals(CommandID.Rest.toString())) {
+				cmd = new CommandRest((int) ettKommando.get("Time"));
+			} else {
+				cmd = cmdFinishedSimulating;
+			}
+			
+			enGubbe.add(cmd);
+		}
+		enGubbe.add(cmdFinishedSimulating);
 	}
 	
 	private boolean isTimeToSpawnNow(SpecGameObject ettObjektAttSpawna) {
