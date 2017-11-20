@@ -119,7 +119,7 @@ public class Spawner {
 			String kommandotyp = (String) ettKommando.get("ID");
 
 			if (kommandotyp.equals(CommandID.GoTo.toString())) {
-				cmd = new CommandGoTo((String) ettKommando.get("ZoneName"));
+				cmd = new CommandGoTo((String) ettKommando.get("ZoneName"), handler);
 			} else if (kommandotyp.equals(CommandID.Rest.toString())) {
 				cmd = new CommandRest((int) ettKommando.get("Time"));
 			} else {
