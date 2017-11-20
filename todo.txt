@@ -11,7 +11,6 @@ User has 128 finds (100 needed).Filters:( county:Strängnäs ,  country:Sweden)
 
 Kvar att göra:
 ==============
-Gubben håller koll på kommandon - gåtillzoner
 I framtiden byta x y width height till rectangle
 Escape ska ta fram menyn där man kan välja att avsluta
 Bygg gameobjects enl component pattern?
@@ -27,12 +26,6 @@ Rutt eller möjligen kommands är delmål
 	stanna, move, spring, vänta, removeobj, goalreached
 Testramverk - Mockito
 javax.validattion.constraints. assertTrue
-<dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-all
-      <version>${mockito.version}</version>
-      <scope>test</scope>
-    </dependency>
 Köra repris på en simulering - kräver att simuleringen loggade alla rörelser
 En fil som specar 100 gubbar av den sorten
 simulering startar m att initiera alla gubbar. Skapa dessa 100 o lägg dem i en kö i rätt ordning som de ska 
@@ -44,6 +37,13 @@ Gui som skapar fil.
 
 Klart:
 ======
+<dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+</dependency>
+Gubben håller koll på kommandon - gåtillzoner
 Skriva tester till det som finns, tex zoner, wall mfl
 Avstånd i meter - Converterklass
 Skapa spawner från jsonfil
