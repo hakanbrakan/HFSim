@@ -24,6 +24,7 @@ public class ZoneSpawner {
 	private double yDirection;
 
 	public ZoneSpawner(SpecGameObject ettSpecObject, Handler handler) {
+		//TODO Man skulle kunna ta in en zon istf specobj
 		allaGubbar = new ArrayList<>();
 		gubbarIZonen = new ArrayList<>();
 		this.handler = handler;
@@ -111,6 +112,10 @@ public class ZoneSpawner {
 	@Override
 	public String toString() {
 		return "ZoneSpawner [zonNamn=" + zonNamn + "]";
+	}
+
+	public Zone getZone() {
+		return zoneAttSpawnaTill;
 	}
 }
 

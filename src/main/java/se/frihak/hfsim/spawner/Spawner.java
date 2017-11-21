@@ -88,22 +88,29 @@ public class Spawner {
 	}
 
 	private void createZoneSpawners() {
+		ArrayList<SpecGameObject> specarAttTaBort = new ArrayList<>();
+		
 		for (SpecGameObject enSpec : attSpawna) {
 			if (enSpec.getId() == ID.Zone) {
 				ZoneSpawner enZoneSpawner = new ZoneSpawner(enSpec, handler);
 				allaZonespawners.put(enSpec.getNamn(), enZoneSpawner);
+
+				Zone enNyZone = new Zone(enSpec);
+				handler.addObject(enNyZone);
+				enZoneSpawner.set(enNyZone);
+				
+				specarAttTaBort.add(enSpec);
 			}
+		}
+		
+		for (SpecGameObject spec : specarAttTaBort) {
+			attSpawna.remove(spec);
 		}
 	}
 
 	private void spawnOneObject(SpecGameObject enSpec) {
 		if (enSpec.getId()==ID.Wall) {
 			handler.addObject(new Wall(enSpec));
-		} else if (enSpec.getId()==ID.Zone) {
-			Zone enNyZone = new Zone(enSpec);
-			handler.addObject(enNyZone);
-			ZoneSpawner enZonSpawner = allaZonespawners.get(enSpec.getNamn());
-			enZonSpawner.set(enNyZone);
 		} else if (enSpec.getId()==ID.WalkingMan) {
 			spawnOneWalkingMan(enSpec);
 		}
@@ -119,7 +126,7 @@ public class Spawner {
 			String kommandotyp = (String) ettKommando.get("ID");
 
 			if (kommandotyp.equals(CommandID.GoTo.toString())) {
-				cmd = new CommandGoTo((String) ettKommando.get("ZoneName"), handler);
+				cmd = new CommandGoTo(allaZonespawners.get(ettKommando.get("ZoneName")).getZone());
 			} else if (kommandotyp.equals(CommandID.Rest.toString())) {
 				cmd = new CommandRest((int) ettKommando.get("Time"));
 			} else {
@@ -130,7 +137,7 @@ public class Spawner {
 		}
 		enGubbe.add(cmdFinishedSimulating);
 	}
-	
+
 	private boolean isTimeToSpawnNow(SpecGameObject ettObjektAttSpawna) {
 		return true;
 	}

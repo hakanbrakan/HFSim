@@ -7,8 +7,6 @@
 User has 128 finds (100 needed).Filters:( county:Strängnäs ,  country:Sweden)
 
 
-
-
 Kvar att göra:
 ==============
 I framtiden byta x y width height till rectangle
@@ -21,10 +19,6 @@ Tid i minuter o sekunder
 När tar simuleringen slut? 
 	Alla movingobjects borta?
 	Alla mål uppfyllda?
-Rutt eller möjligen kommands är delmål
-	tex zon a, c, ståstill 3min , d e
-	stanna, move, spring, vänta, removeobj, goalreached
-Testramverk - Mockito
 javax.validattion.constraints. assertTrue
 Köra repris på en simulering - kräver att simuleringen loggade alla rörelser
 En fil som specar 100 gubbar av den sorten
@@ -37,6 +31,10 @@ Gui som skapar fil.
 
 Klart:
 ======
+Rutt eller möjligen kommands är delmål
+	tex zon a, c, ståstill 3min , d e
+	stanna, move, spring, vänta, removeobj, goalreached
+Testramverk - Mockito
 <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-all

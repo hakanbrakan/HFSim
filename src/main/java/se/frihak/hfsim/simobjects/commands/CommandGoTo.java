@@ -2,34 +2,20 @@ package se.frihak.hfsim.simobjects.commands;
 
 import java.awt.Point;
 
-import se.frihak.hfsim.Handler;
-import se.frihak.hfsim.simobjects.ID;
 import se.frihak.hfsim.simobjects.WalkingMan;
 import se.frihak.hfsim.simobjects.Zone;
 
 public class CommandGoTo implements WalkingManCommand {
-
-	private String zonename;
-	private Zone goalZone;
+	private Zone goal;
 	private Point goalPoint;
-	private Handler handler;
 
-	public CommandGoTo(String name, Handler handler) {
-		this.zonename = name;
-		this.handler = handler;
+	public CommandGoTo(Zone goal) {
+		this.goal = goal;
 	}
 
 	@Override
 	public void tick(WalkingMan gaandeMan) {
-		if (goalZone == null) {
-			goalZone = handler
-					.getObjects((i) -> i.getId()==ID.Zone)
-					.map(Zone.class::cast)
-					.filter((i) -> i.getName().equals(zonename))
-					.findFirst()
-					.orElse(null);
-		}
-		goalPoint = goalZone.nereast(new Point((int)gaandeMan.getX(),(int)gaandeMan.getY()));
+		goalPoint = goal.nereast(new Point((int)gaandeMan.getX(),(int)gaandeMan.getY()));
 		goalPoint.setLocation(goalPoint.getX()+Math.signum(goalPoint.getX()-gaandeMan.getX())*gaandeMan.getBounds().width, goalPoint.getY()+Math.signum(goalPoint.getY()-gaandeMan.getY())*gaandeMan.getBounds().height);
 		
 		
@@ -43,19 +29,18 @@ public class CommandGoTo implements WalkingManCommand {
 		gaandeMan.setX((gaandeMan.getX() + velX));
 		gaandeMan.setY((gaandeMan.getY() + velY));
 		
-		if (goalReached(goalZone, gaandeMan.getX(), gaandeMan.getY())) {
+		if (goalReached(goal, gaandeMan)) {
 			thisCommandIsCompleted(gaandeMan);
 		}
 
 	}
 	private void thisCommandIsCompleted(WalkingMan gaandeMan) {
 		gaandeMan.removeCommand(this);
-		handler = null;
-		goalZone = null;
+		goal = null;
 	}
 
-	private boolean goalReached(Zone goal, float x, float y) {
-		return goal.getBounds().contains(x,y);
+	private boolean goalReached(Zone goal, WalkingMan man) {
+		return goal.getBounds().contains(man.getBounds());
 	}
 
 }
