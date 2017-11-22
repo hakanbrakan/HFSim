@@ -11,7 +11,6 @@ Kvar att göra:
 ==============
 I framtiden byta x y width height till rectangle
 Escape ska ta fram menyn där man kan välja att avsluta
-Bygg gameobjects enl component pattern?
 Köra och åtgärda coverage
 Debugga i frame dvs ett tick per knapptryck
 
@@ -19,18 +18,19 @@ Tid i minuter o sekunder
 När tar simuleringen slut? 
 	Alla movingobjects borta?
 	Alla mål uppfyllda?
-javax.validattion.constraints. assertTrue
 Köra repris på en simulering - kräver att simuleringen loggade alla rörelser
 En fil som specar 100 gubbar av den sorten
 simulering startar m att initiera alla gubbar. Skapa dessa 100 o lägg dem i en kö i rätt ordning som de ska 
 placeras ut på plan om de får plats. En apperancequeue. Varje gubbe har ett startnr som de får i initfasen
 Skapa ett transformerobjekt från "100 gubbar" till dessa 100 i rätt ordning. - Klar
-Game loop i egen tråd? Ta bästa exemplet på game loop från http:....
 Gui som skapar fil.
+javax.validattion.constraints. assertTrue
 
 
 Klart:
 ======
+Game loop i egen tråd? Ta bästa exemplet på game loop från http:....
+Bygg gameobjects enl component pattern?
 Rutt eller möjligen kommands är delmål
 	tex zon a, c, ståstill 3min , d e
 	stanna, move, spring, vänta, removeobj, goalreached
